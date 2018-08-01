@@ -36,10 +36,7 @@ function asCallback(url, opts, cb) {
 	var fileLength = 1;
 	var bar ;
 
-	request.get({
-		url: url,
-		strictSSL: false
-	}).on("response", function(response) {
+	request.get(url, opts).on("response", function(response) {
 
 		fileLength = parseInt(response.headers['content-length']);
 		bar = new ProgressBar('downloading [:bar] :percent :etas ', {
